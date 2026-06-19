@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <math.h>
+
+// Function to check Armstrong number
+int isArmstrong(int num)
+{
+    int original, remainder, digits = 0;
+    int sum = 0, temp;
+
+    original = num;
+    temp = num;
+
+    // Count digits
+    while(temp != 0)
+    {
+        digits++;
+        temp /= 10;
+    }
+
+    temp = num;
+
+    // Calculate sum of powers of digits
+    while(temp != 0)
+    {
+        remainder = temp % 10;
+        sum += pow(remainder, digits);
+        temp /= 10;
+    }
+
+    return (sum == original);
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if(isArmstrong(num))
+        printf("%d is an Armstrong Number.\n", num);
+    else
+        printf("%d is Not an Armstrong Number.\n", num);
+
+    return 0;
+}
