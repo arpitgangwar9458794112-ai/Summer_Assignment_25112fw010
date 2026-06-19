@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i;
+    int sum = 0, expectedSum, missing;
+
+    printf("Enter the value of n (numbers from 1 to n): ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements (one number missing):\n", n - 1);
+
+    for(i = 0; i < n - 1; i++)
+    {
+        scanf("%d", &arr[i]);
+        sum += arr[i];
+    }
+
+    expectedSum = n * (n + 1) / 2;
+    missing = expectedSum - sum;
+
+    printf("Missing Number = %d\n", missing);
+
+    return 0;
+}
